@@ -18,5 +18,11 @@ pipeline{
 						        sh "docker build . -t samplewebapp:${env.BUILD_ID}"
 						}
 				}	
+				stage("uploading to testing"){
+						steps{
+						        sh "docker run -d -p 9092:8080 samplewebapp:${env.BUILD_ID}"
+						}
+				}
+				
 		}
 }
