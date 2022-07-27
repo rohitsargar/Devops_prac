@@ -3,7 +3,7 @@ pipeline{
 		stages{
 				stage("build application"){
 						steps{
-					           sh 'mvn -f pom.xml clean package'
+					           sh "mvn -f pom.xml clean package"
 						}
 						post{
 								success{
@@ -15,7 +15,7 @@ pipeline{
 				
 				stage("create docker image"){
 						steps{
-						        sh 'docker build . -t samplewebapp:${env.BUILD_ID}'
+						        sh "docker build . -t samplewebapp:${env.BUILD_ID}"
 						}
 				}	
 		}
