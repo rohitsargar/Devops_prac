@@ -23,7 +23,7 @@ pipeline{
 					steps{
 						sh "docker stop my_project"
 						sh "docker rm my_project"
-						sh "docker run -p -d 9095:8080 --name my_project samplewebapp:${env.BUILD_ID}"
+						sh "docker run -d -p 9095:8080 --name my_project samplewebapp:${env.BUILD_ID}"
 					}
 
 
