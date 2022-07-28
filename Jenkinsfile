@@ -19,11 +19,12 @@ pipeline{
 						}
 				}	
 
-				stage("uploading to testing environment"){
+				stage("create & run service on testing environment"){
 					steps{
-						sh "docker stop my_project"
-						sh "docker rm my_project"
-						sh "docker run -d -p 9095:8080 --name my_project samplewebapp:${env.BUILD_ID}"
+						
+						sh "docker service rm my_project"
+						sh "docker service create -p 9095:8080 --name my_project samplewebapp:${env.BUILD_ID}"
+
 					}
 
 
