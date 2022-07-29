@@ -22,8 +22,8 @@ pipeline{
 				stage("create & run service on testing environment"){
 					steps{
 						
-						sh "docker service rm my_project_testing"
-						sh "docker service create -p 9095:8080 --name my_project_testing samplewebapp:${env.BUILD_ID}"
+						
+						sh "docker service update --image samplewebapp:${env.BUILD_ID} my_project_testing "
 
 					}
 
