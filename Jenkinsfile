@@ -12,6 +12,11 @@ pipeline{
 								}
 						}
 				}
+			stage("Teststing the code"){
+						steps{
+						        sh "echo testing successfully"
+						}
+				}
 				
 				stage("create docker image"){
 						steps{
