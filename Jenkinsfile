@@ -19,16 +19,11 @@ pipeline{
 						}
 				}	
 
-				stage("create & run service on testing environment"){
+				/* stage("create & run service on testing environment"){
 					steps{
-						
-						
 						sh "docker service update --image samplewebapp:${env.BUILD_ID} my_project_testing "
-
 					}
-
-
-				}
+				} */
 
 
 				stage("uploading to production environment"){
