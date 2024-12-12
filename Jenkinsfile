@@ -28,7 +28,8 @@ pipeline{
 
 				stage("uploading to production environment"){
 					steps{
-						sh "echo hii"
+						sh "docker run -p 8081:8080 -d samplewebapp:${env.BUILD_ID} "
+						sh " echo SUCCESSFULLY UPLOADED go to link localhost:8081/Devops_prac-0.0.1-SNAPSHOT/index.jsp"
 					}
 
 
